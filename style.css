@@ -1,0 +1,469 @@
+/* Valentine's Day Page Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 50%, #ff69b4 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Tulip Background Animation */
+.tulip {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.3;
+    animation: float 15s infinite ease-in-out;
+    pointer-events: none;
+}
+
+.tulip:nth-child(1) { 
+    left: 10%; 
+    top: 20%; 
+    animation-delay: 0s; 
+}
+
+.tulip:nth-child(2) { 
+    left: 80%; 
+    top: 30%; 
+    animation-delay: 2s; 
+}
+
+.tulip:nth-child(3) { 
+    left: 15%; 
+    top: 70%; 
+    animation-delay: 4s; 
+}
+
+.tulip:nth-child(4) { 
+    right: 10%; 
+    top: 60%; 
+    animation-delay: 6s; 
+}
+
+.tulip:nth-child(5) { 
+    left: 50%; 
+    top: 10%; 
+    animation-delay: 3s; 
+}
+
+.tulip:nth-child(6) { 
+    right: 20%; 
+    top: 80%; 
+    animation-delay: 5s; 
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(5deg); 
+    }
+}
+
+/* Full screen tulip background when activated */
+.tulip-shower {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #ff69b4 0%, #ffc0cb 50%, #ffb6c1 100%);
+    z-index: 9998;
+    overflow: hidden;
+}
+
+.tulip-shower.active {
+    display: block;
+}
+
+.falling-tulip {
+    position: absolute;
+    font-size: 40px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0.5;
+    }
+}
+
+/* Main Container */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(255, 105, 180, 0.4);
+    padding: 40px 30px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Header Section */
+.header-tulips {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: translateY(0); 
+    }
+    50% { 
+        transform: translateY(-10px); 
+    }
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #ff1493;
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    font-weight: 400;
+}
+
+.subtitle {
+    font-family: 'Quicksand', sans-serif;
+    color: #ff69b4;
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* Image Section */
+.image-container {
+    margin: 30px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Message Section */
+.message {
+    font-family: 'Quicksand', sans-serif;
+    color: #d63384;
+    font-size: 1.2em;
+    line-height: 1.8;
+    margin: 30px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e9 100%);
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    font-weight: 500;
+}
+
+/* Button Section */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.btn {
+    font-family: 'Quicksand', sans-serif;
+    padding: 18px 40px;
+    font-size: 1.3em;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+}
+
+.btn-yes {
+    background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+    color: white;
+}
+
+.btn-yes:hover {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 20, 147, 0.5);
+}
+
+.btn-no {
+    background: linear-gradient(135deg, #ffc0cb 0%, #ffb6c1 100%);
+    color: #d63384;
+}
+
+.btn-no:hover {
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 100%);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 182, 193, 0.5);
+}
+
+.btn-video {
+    background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+    color: white;
+}
+
+.btn-video:hover {
+    background: linear-gradient(135deg, #c44569 0%, #ff6b9d 100%);
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(196, 69, 105, 0.5);
+}
+
+/* Hearts Animation */
+.hearts {
+    font-size: 40px;
+    margin: 20px 0;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1); 
+    }
+    50% { 
+        transform: scale(1.1); 
+    }
+}
+
+/* Footer */
+.footer {
+    font-family: 'Pacifico', cursive;
+    margin-top: 30px;
+    color: #ff69b4;
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+/* Modal for responses */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 105, 180, 0.9);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    max-width: 500px;
+    animation: popIn 0.5s ease-out;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content h2 {
+    font-family: 'Pacifico', cursive;
+    color: #ff1493;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.modal-content p {
+    font-family: 'Quicksand', sans-serif;
+    color: #d63384;
+    font-size: 1.3em;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.modal-emoji {
+    font-size: 80px;
+    margin: 20px 0;
+}
+
+/* YouTube Video Container */
+.video-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    width: 90%;
+    max-width: 800px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-container.active {
+    display: block;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+}
+
+.close-video {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 30px;
+    font-family: Arial, sans-serif;
+    color: #ff1493;
+    cursor: pointer;
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ff1493;
+    font-weight: bold;
+}
+
+.close-video:hover {
+    background: #ff1493;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
+    }
+
+    .message {
+        font-size: 1em;
+    }
+
+    .btn {
+        font-size: 1.1em;
+        padding: 15px 30px;
+    }
+
+    .header-tulips {
+        font-size: 50px;
+    }
+
+    .video-container iframe {
+        height: 250px;
+    }
+
+    .container {
+        padding: 30px 20px;
+    }
+
+    .footer {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .message {
+        font-size: 0.95em;
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 12px 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 2em;
+    }
+
+    .modal-content p {
+        font-size: 1.1em;
+    }
+
+    .footer {
+        font-size: 0.95em;
+    }
+}
+/* Modal Image Styling */
+.modal-image {
+    margin: 20px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+}
+
+.modal-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto;
+}

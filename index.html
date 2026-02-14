@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine? 💕</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Floating Tulips Background -->
+    <div class="tulip">🌷</div>
+    <div class="tulip">🌷</div>
+    <div class="tulip">🌷</div>
+    <div class="tulip">🌷</div>
+    <div class="tulip">🌷</div>
+    <div class="tulip">🌷</div>
+
+    <!-- Tulip Shower Background -->
+    <div class="tulip-shower" id="tulipShower"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <div class="header-tulips">🌷💕🌷</div>
+        
+        <!-- CUSTOMIZABLE: Change your title here -->
+        <h1>Will You Be My Valentine?</h1>
+        
+        <!-- CUSTOMIZABLE: Change your subtitle here -->
+        <p class="subtitle">I know you have been busy lately, but I still want to spend this Valentine's Day with you!</p>
+
+        <!-- CUSTOMIZABLE: Add your image here - Replace "YOUR_IMAGE_URL" with your image link -->
+        <!-- To use: Uncomment the section below and add your image URL or local path -->
+        <!--
+        <div class="image-container">
+            <img src="YOUR_IMAGE_URL" alt="Our Memory">
+        </div>
+        -->
+
+        <!-- CUSTOMIZABLE: Change your message here -->
+        <div class="message">
+            <p>
+                From the moment I met you mahal, my world became brighter. 
+                Every day with you feels like a beautiful dream. 
+                This Valentine's Day, I want to ask you something stargazing.
+            </p>
+            <p style="font-weight: bold; font-size: 1.3em; color: #ff1493; margin-top: 15px;">
+                Will you be my Valentine?
+            </p>
+        </div>
+
+        <div class="hearts">💕 ❤️ 💖 ❤️ 💕</div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+            <button class="btn btn-yes" onclick="showYesModal()">Yes, Mahal!</button>
+            <button class="btn btn-no" onclick="showNoModal()">I Need to Think About It </button>
+            
+            <!-- YouTube Link Button -->
+<a href="https://youtu.be/nGIm2ANI3pU?si=BeMF1mXlbzH4YSWE" target="_blank" class="btn btn-video">
+    Click this Mahal
+</a>
+
+        <!-- CUSTOMIZABLE: Change your footer message here -->
+        <div class="footer">
+            I Love You So Much, Mahal! Happy Valentine's Day! 🌹💕
+        </div>
+    </div>
+
+    <!-- Yes Modal -->
+<div class="modal" id="yesModal">
+    <div class="modal-content">
+        <div class="modal-emoji"></div>
+        
+        <!-- ADD YOUR IMAGE HERE -->
+        <div class="modal-image">
+            <img src="pic.jpg" alt="Special moment">
+        </div>
+        
+        <!-- CUSTOMIZABLE: Change "Yes" response message here -->
+        <h2>Dapat lang aba!</h2>
+        <p>I can't wait to spend this Valentine's Day with you! I love you so much mahal 🌷💕</p>
+        <button class="btn btn-yes" onclick="closeModal('yesModal')">Close </button>
+    </div>
+</div>
+   <!-- No/Maybe Modal -->
+<div class="modal" id="noModal">
+    <div class="modal-content">
+        <div class="modal-emoji"></div>
+        
+        <!-- ADD YOUR IMAGE HERE -->
+        <div class="modal-image">
+            <img src="bleh.jpg" alt="Take your time">
+        </div>
+        
+        <!-- CUSTOMIZABLE: Change "Maybe" response message here -->
+        <h2>Bakit mo pagiisipan??!</h2>
+        <p>Go back and click "Yes" You're not getting out of this that easily!</p>
+        <button class="btn btn-yes" onclick="closeModal('noModal')">Close 🤪</button>
+    </div>
+</div>
+    <!-- YouTube Video Container -->
+    <div class="video-container" id="videoContainer">
+        <span class="close-video" onclick="closeVideo()">×</span>
+        <iframe id="videoFrame" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // Modal Functions
+        function showYesModal() {
+            document.getElementById('yesModal').classList.add('active');
+        }
+
+        function showNoModal() {
+            document.getElementById('noModal').classList.add('active');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+        }
+
+        // Video Functions with Tulip Shower
+        function showVideo(videoId) {
+            // CUSTOMIZABLE: Replace with your YouTube video ID in the button onclick above
+            if (videoId === 'YOUR_YOUTUBE_VIDEO_ID') {
+                alert('Please add your YouTube video ID in the code!\n\nFind the video ID from your YouTube link.\nExample: https://www.youtube.com/watch?v=dQw4w9WgXcQ\nThe ID is: dQw4w9WgXcQ');
+                return;
+            }
+
+            // Show tulip shower
+            const tulipShower = document.getElementById('tulipShower');
+            tulipShower.classList.add('active');
+            
+            // Create falling tulips
+            for (let i = 0; i < 30; i++) {
+                setTimeout(() => {
+                    createFallingTulip();
+                }, i * 200);
+            }
+
+            // Show video
+            const videoContainer = document.getElementById('videoContainer');
+            const videoFrame = document.getElementById('videoFrame');
+            videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+            videoContainer.classList.add('active');
+        }
+
+        function createFallingTulip() {
+            const tulip = document.createElement('div');
+            tulip.className = 'falling-tulip';
+            tulip.textContent = '🌷';
+            tulip.style.left = Math.random() * 100 + '%';
+            tulip.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            tulip.style.fontSize = (Math.random() * 20 + 30) + 'px';
+            
+            document.getElementById('tulipShower').appendChild(tulip);
+            
+            setTimeout(() => {
+                tulip.remove();
+            }, 6000);
+        }
+
+        function closeVideo() {
+            const videoContainer = document.getElementById('videoContainer');
+            const videoFrame = document.getElementById('videoFrame');
+            const tulipShower = document.getElementById('tulipShower');
+            
+            videoContainer.classList.remove('active');
+            tulipShower.classList.remove('active');
+            videoFrame.src = '';
+            
+            // Clear falling tulips
+            tulipShower.innerHTML = '';
+        }
+
+        // Continue creating tulips while shower is active
+        setInterval(() => {
+            const tulipShower = document.getElementById('tulipShower');
+            if (tulipShower.classList.contains('active')) {
+                createFallingTulip();
+            }
+        }, 300);
+    </script>
+</body>
+</html>
